@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mr.mapper.UserMapper">
+
+    <select id="queryUser" resultType="tMallUserAccount">
+      SELECT * FROM t_mall_user_account u
+      WHERE
+      u.yh_mch = #{userName}
+      AND
+      u.yh_mm = #{userPswd}
+    </select>
+
+    <insert id="register" parameterType="tMallUserAccount">
+        INSERT INTO t_mall_user_account
+        (yh_mch,yh_mm,yh_shjh,yh_yx)
+        VALUES
+        (#{yhMch},#{yhMm},#{yhYx},#{yhShjh})
+        ('admin','admin','1418241903@qq.com','13994985224')
+    </insert>
+
+</mapper>
